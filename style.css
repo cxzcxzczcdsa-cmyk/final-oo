@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap');
+:root{--ink:#17142e;--cream:#f6e6d2;--lavender:#b98ad3;--purple:#493b78;--progress:0;}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;}body{background:#100e22;color:var(--cream);font-family:'Kanit',sans-serif;display:flex;justify-content:center;}button{font:inherit;cursor:pointer}button:focus-visible{outline:3px solid #f6cd72;outline-offset:3px}
+.game{position:relative;width:100%;max-width:430px;min-height:100svh;overflow:hidden;background:linear-gradient(165deg,#17142e 0%,#22213d 55%,#31274b 100%);transition:background 1s ease;isolation:isolate}
+.game::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:calc(var(--progress)*.6);background:radial-gradient(ellipse at 65% 25%,#8062a980,transparent 50%),linear-gradient(160deg,transparent 45%,#327a9140 100%);transition:opacity .8s ease}
+.screen{min-height:100svh;width:100%;padding:24px 22px 28px;display:flex;align-items:center;justify-content:center;opacity:1;transform:translateY(0);transition:opacity .28s ease,transform .28s ease}.screen.hidden{display:none!important}.screen.fade-out{opacity:0;transform:translateY(8px)}.screen.fade-in{opacity:0;transform:translateY(8px)}
+.cover-content,.story-content{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;gap:15px}.cover-content{gap:20px}.cover-logo{width:min(85%,320px);max-height:140px;object-fit:contain}.cover-portal{width:min(83%,290px);max-height:360px;object-fit:contain}.story-image{width:min(75%,240px);max-height:250px;object-fit:contain;margin:12px auto}.cover-text h2,h2{font-size:21px;line-height:1.5;font-weight:500;margin:0}.cover-text p,p{font-size:15px;line-height:1.85;font-weight:300;margin:0}.story-top{width:100%;display:flex;justify-content:space-between;gap:8px;font-size:11px;letter-spacing:1.1px;color:#c7b5d9;margin-bottom:12px}.instruction-icon,.scene-symbol{font-size:72px;color:#f6cd72;line-height:1.2;text-shadow:0 0 20px #f6cd7244}.chapter-tag{font-size:12px;letter-spacing:1px;color:#d8bde9}.main-button{border:2px solid #b98ad3;background:#493b78;color:#fff0dc;min-height:49px;min-width:210px;padding:10px 24px;clip-path:polygon(13px 0,calc(100% - 13px) 0,100% 50%,calc(100% - 13px) 100%,13px 100%,0 50%);box-shadow:inset 0 0 0 2px #493b78;transition:background .2s,transform .2s}.main-button:hover{background:#685293;transform:translateY(-2px)}.back-button{background:none;border:0;color:#d2bddc;font-size:13px;padding:8px 14px}.back-button:hover{color:#fff}.choices{display:flex;flex-direction:column;gap:9px;width:100%;margin:4px 0}.choice-button{width:100%;min-height:48px;border:1px solid #8e7ba8;border-radius:10px;background:#302945;color:#f6e6d2;padding:11px 15px;text-align:left;font-size:14px;line-height:1.5;transition:background .2s,border-color .2s}.choice-button:hover{background:#4b3d6d;border-color:#c8a6dc}.choice-button.selected{background:#685293;border-color:#f6cd72}.choice-hint{font-size:12px;color:#bcaaca}.scene-art{position:relative;overflow:hidden;width:100%;height:210px;border-radius:90px 90px 16px 16px;border:2px solid #85729f;background:linear-gradient(to bottom,#292540 0%,#514268 72%,#332d4e 100%);transition:background 1s}.scene-art.small{height:140px;border-radius:65px 65px 14px 14px}.scene-moon{position:absolute;width:44px;height:44px;border-radius:50%;top:24px;right:43px;background:#aaa1b6;transition:background 1s}.scene-tower{position:absolute;bottom:33px;left:20%;width:65px;height:92px;background:#25223a;clip-path:polygon(0 25%,50% 0,100% 25%,100% 100%,0 100%)}.scene-house{position:absolute;bottom:33px;right:14%;width:95px;height:69px;background:#302944;clip-path:polygon(0 33%,50% 0,100% 33%,100% 100%,0 100%)}.scene-path{position:absolute;bottom:-6px;left:32%;width:36%;height:57px;background:#77718a;clip-path:polygon(30% 0,70% 0,100% 100%,0 100%);transition:background 1s}.game[data-stage="1"] .scene-moon{background:#d2bddc}.game[data-stage="2"] .scene-moon{background:#f6cd72}.game[data-stage="2"] .scene-path{background:#a38fb5}.game[data-stage="3"] .scene-path{background:#c3a1d1}.game[data-stage="4"] .scene-art{background:linear-gradient(to bottom,#615184,#9675a6 70%,#5d7790)}.game[data-stage="5"] .scene-art{background:linear-gradient(to bottom,#8a75b9,#c49fcf 68%,#6b9bac)}.game[data-stage="5"] .scene-moon{background:#fff0b8}.final-art{height:235px}
+@media(max-height:690px){.screen{padding-top:16px;padding-bottom:16px}.cover-portal{max-height:245px}.story-image{max-height:170px}.scene-art{height:155px}.scene-art.small{height:105px}.story-content{gap:10px}.choices{gap:6px}.choice-button{min-height:42px;padding:8px 12px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+/* หน้า 24: บัตรผ่านนักเดินทาง */
+.screen[data-page="24"]{align-items:flex-start}
+.traveler-content{gap:12px;padding:10px 0 24px}
+.passport-symbol{font-size:42px;color:#f6cd72}
+.passport-intro{font-size:13px;color:#dfd1e8}
+.traveler-form{width:100%;display:flex;flex-direction:column;gap:17px;text-align:left;margin-top:10px}
+.traveler-form>label,.traveler-form legend{font-size:14px;font-weight:500;color:#f6e6d2;line-height:1.6}
+.traveler-form>label{display:flex;flex-direction:column;gap:7px}
+.traveler-form input[type="text"],.traveler-form select{width:100%;min-height:44px;border:1px solid #9380b0;border-radius:9px;background:#302945;color:#fff0dc;padding:9px 12px;font:inherit;font-size:14px}
+.traveler-form input::placeholder{color:#b9abc9}
+.traveler-form fieldset{border:0;margin:0;padding:0;min-width:0}
+.traveler-form legend{margin-bottom:8px}
+.passport-options{display:flex;flex-wrap:wrap;gap:8px}
+.passport-options label{display:inline-flex;align-items:center;gap:7px;background:#302945;border:1px solid #78658e;border-radius:10px;padding:9px 11px;font-size:12px;font-weight:400;line-height:1.5;cursor:pointer}
+.passport-options input{accent-color:#b98ad3;width:16px;height:16px;margin:0}
+.passport-hint{font-size:11px!important;color:#c9b8d5;text-align:left}
+.traveler-form .main-button{align-self:center;margin-top:8px}
+
+
+
+/* Clean single motion system */
+:root { --world-progress: 0; }
+body {background:#17142e;position:relative}
+.game {--portal-glow:0;--journey:0%;background:transparent!important;isolation:auto;overflow:visible;position:relative;z-index:1}
+.game::before,.game::after{display:none!important}
+.world-sky{position:fixed;inset:0;z-index:0;pointer-events:none;
+ background:linear-gradient(180deg,
+ rgb(calc(23 + var(--world-progress) * 96),calc(20 + var(--world-progress) * 78),calc(46 + var(--world-progress) * 116)),
+ rgb(calc(31 + var(--world-progress) * 125),calc(26 + var(--world-progress) * 118),calc(52 + var(--world-progress) * 151)));
+ transition:background 1s ease}
+#animatedStarfield{position:fixed;inset:0;display:block;width:100vw;height:100dvh;z-index:2;pointer-events:none}
+.world-stars,.magic-sparkles,.scene-transition{display:none!important}
+.journey-progress{position:absolute;top:0;left:0;right:0;height:3px;z-index:10;background:#f6e6d21a}
+.journey-progress[hidden]{display:none}
+.journey-progress span{display:block;width:var(--journey);height:100%;background:linear-gradient(90deg,#b98ad3,#f6cd72);transition:width .85s cubic-bezier(.22,1,.36,1)}
+.screen{background:transparent;position:relative;z-index:3}
+.game.is-transitioning{overflow:clip}
+.screen.motion-leaving,.screen.motion-entering{transition:none;will-change:transform,opacity}
+.screen.motion-leaving{position:absolute;left:0;z-index:4}
+.screen.motion-entering{z-index:5}
+.screen.motion-entering *,.screen.motion-leaving *{animation-play-state:paused!important}
+.scene-art.portal-art,.scene-art.portal-art.small{height:auto;aspect-ratio:500/360;background:transparent!important;border:0!important;overflow:visible}
+.scene-art.portal-art::after{display:none!important}
+.portal-layers{position:relative;width:100%;aspect-ratio:500/360;animation:portalBreathing 5s ease-in-out infinite alternate}
+.portal-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.portal-next{display:none!important}
+.portal-base{filter:brightness(calc(.88 + var(--portal-glow) * .12));transition:filter 1s ease}
+@keyframes portalBreathing{from{transform:translateY(1px)}to{transform:translateY(-4px)}}
+.choice-button.just-chosen{animation:chosenSoft .32s ease both}
+@keyframes chosenSoft{50%{filter:brightness(1.2);transform:scale(.99)}}
+.game.city-restored .story-top,.game.city-restored .chapter-tag,.game.city-restored .choice-hint,.game.city-restored .back-button{color:#2b2048}
+.game.city-restored .story-content>h2,.game.city-restored .story-content>p,.game.city-restored .passport-intro,.game.city-restored .traveler-form>label,.game.city-restored .traveler-form legend{color:#251c3e}
+.game.city-restored .choice-button{background:#352b51;color:#fff1df}
+@media(prefers-reduced-motion:reduce){.portal-layers{animation:none!important}}
+/* ===================================
+   IMAGINE CITY
+   Fantasy Pointed Choice Button
+=================================== */
+
+.choice-button {
+  position: relative;
+  width: 100%;
+  min-height: 50px;
+  padding: 13px 42px 13px 16px;
+
+  color: #FFF0DC;
+  background: #352A4D;
+
+  border: 1px solid #A88BC4;
+  border-radius: 0;
+
+  /* ตัดมุมให้เป็นทรงแฟนตาซี */
+  clip-path: polygon(
+    12px 0,
+    calc(100% - 12px) 0,
+    100% 50%,
+    calc(100% - 12px) 100%,
+    12px 100%,
+    0 50%
+  );
+
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+
+  transition:
+    background-color 0.25s ease,
+    filter 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* สัญลักษณ์เพชรด้านขวา */
+.choice-button::after {
+  content: "◆";
+  position: absolute;
+  right: 19px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  font-size: 10px;
+  color: #D9B9ED;
+  pointer-events: none;
+}
+
+/* เมื่อนำเมาส์ไปชี้ */
+.choice-button:hover {
+  background: #493B68;
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+}
+
+/* เมื่อกด */
+.choice-button:active {
+  transform: scale(0.985);
+}
+
+/* เมื่อเลือกคำตอบ */
+.choice-button.selected,
+.choice-button[aria-pressed="true"] {
+  background: #625080;
+  border-color: #F3D18D;
+  color: #FFF5E6;
+}
+
+.choice-button.selected::after,
+.choice-button[aria-pressed="true"]::after {
+  color: #F3D18D;
+}
+
+/* รองรับมือถือ */
+@media (max-width: 480px) {
+  .choice-button {
+    min-height: 48px;
+    padding: 12px 36px 12px 15px;
+    font-size: 14px;
+  }
+}
+
+/* จัดข้อความให้อยู่กึ่งกลางปุ่ม */
+.choice-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+  padding: 13px 40px;
+}
+
+/* ให้สัญลักษณ์เพชรอยู่ด้านขวา */
+.choice-button::after {
+  content: "◆";
+  position: absolute;
+  right: 19px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ให้ปุ่มมีสัญลักษณ์เพชรทั้งสองด้าน */
+.choice-button {
+  position: relative;
+  text-align: center;
+}
+
+/* เพชรด้านซ้าย */
+.choice-button::before {
+  content: "◆";
+  position: absolute;
+  left: 19px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  font-size: 10px;
+  color: #D9B9ED;
+  pointer-events: none;
+}
+
+/* เพชรด้านขวา */
+.choice-button::after {
+  content: "◆";
+  position: absolute;
+  right: 19px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  font-size: 10px;
+  color: #D9B9ED;
+  pointer-events: none;
+}
+
+/* เปลี่ยนเป็นสีทองเมื่อเลือกคำตอบ */
+.choice-button.selected::before,
+.choice-button.selected::after {
+  color: #F3D18D;
+}
+
+/* Keep the layout width stable when a scrollbar appears/disappears. */
+html { scrollbar-gutter: stable; overflow-x: clip; }
+body { overflow-x: clip; }
+
+/* Minimal Fantasy: stationary CSS stars, independent gentle twinkling. */
+#animatedStarfield, #pngStarfield, .world-stars {display:none!important}
+#cssStarfield {
+ position:fixed;inset:0;width:100%;height:100dvh;overflow:hidden;
+ pointer-events:none;z-index:2;contain:paint;
+}
+.twinkle-star {
+ position:absolute;left:var(--x);top:var(--y);
+ display:block;opacity:.3;
+ animation:softTwinkle var(--duration) ease-in-out var(--delay) infinite alternate;
+ will-change:opacity;
+}
+.twinkle-star.spark {width:9px;height:9px}
+.twinkle-star.spark::before,.twinkle-star.spark::after {
+ content:"";position:absolute;display:block;inset:0;margin:auto;
+ background:currentColor;box-shadow:0 0 8px currentColor;
+}
+.twinkle-star.spark::before {width:3px;height:100%;border-radius:100%}
+.twinkle-star.spark::after {width:100%;height:3px;border-radius:100%}
+.twinkle-star.dot {width:3px;height:3px;border-radius:50%;background:currentColor;box-shadow:0 0 7px 2px currentColor}
+.twinkle-star.cream {color:#fff0cf}
+.twinkle-star.lav {color:#d6b8ff}
+@keyframes softTwinkle {0%{opacity:.12}50%{opacity:.45}100%{opacity:.9}}
+@media(prefers-reduced-motion:reduce){.twinkle-star{animation:none!important;opacity:.5}}
+
+/* Identity reveal */
+#page25 {
+  --identity-accent: #ffd895;
+  --identity-glow: #e3a95e49;
+}
+#page25[data-role="1"] { --identity-accent: #ffc7e2; --identity-glow: #ed88b749; }
+#page25[data-role="2"] { --identity-accent: #dfc7ff; --identity-glow: #aa79ff55; }
+#page25[data-role="3"] { --identity-accent: #ffbcae; --identity-glow: #ec836c49; }
+#page25[data-role="4"] { --identity-accent: #b9f1df; --identity-glow: #64c9ac49; }
+
+.result-layout { width: 100%; max-width: 360px; text-align: center; }
+.identity-card {
+  padding: 24px clamp(16px, 5vw, 26px) 22px;
+  border: 1px solid #ead9ff80;
+  border-radius: 110px 110px 24px 24px;
+  background: radial-gradient(ellipse at 50% 16%, var(--identity-glow), transparent 55%),
+    linear-gradient(160deg, #31224b, #211a37 73%);
+  box-shadow: 0 14px 36px #21133555, inset 0 0 0 5px #e8d6ff0c;
+  color: #fff1e2;
+}
+.identity-art {
+  position: relative;
+  display: grid;
+  height: 148px;
+  place-items: center;
+  color: var(--identity-accent);
+}
+.result-emblem {
+  display: grid;
+  place-items: center;
+  width: 92px;
+  aspect-ratio: 1;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  outline: 1px solid #f0dfff55;
+  outline-offset: 8px;
+  background: radial-gradient(circle at 50% 35%, var(--identity-glow), #271d3e 76%);
+  box-shadow: 0 0 35px var(--identity-glow);
+  font-size: 48px;
+  line-height: 1;
+  text-shadow: 0 0 16px var(--identity-glow);
+}
+.identity-star { position: absolute; font-size: 22px; }
+.identity-star-left { left: 14%; top: 57%; }
+.identity-star-right { right: 13%; top: 20%; }
+.identity-header p { color: var(--identity-accent); font-size: 13px; }
+.identity-header h2 { font-size: clamp(32px, 8vw, 44px); line-height: 1.18; margin: 4px 0 10px; }
+.identity-description { color: #eee2f5; font-size: 15px; line-height: 1.65; }
+.identity-major {
+  margin-top: 19px;
+  padding: 12px 14px;
+  border-top: 1px solid #e8d6ff55;
+  border-radius: 0 0 14px 14px;
+  background: #e8d6ff0d;
+}
+.identity-major .identity-major-label { color: var(--identity-accent); font-size: 12px; }
+#resultMajor { margin-top: 4px; font-size: 15px; font-weight: 500; line-height: 1.4; }
+.identity-actions { display: grid; justify-items: center; gap: 4px; margin-top: 16px; }
+.game.city-restored .identity-actions .back-button { color: #241936; }
+.identity-actions .back-button { min-height: 44px; }

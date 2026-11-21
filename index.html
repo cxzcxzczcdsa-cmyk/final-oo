@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imagine City</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="cssStarfield" aria-hidden="true"><span class="twinkle-star spark cream" style="--x:6%;--y:17%;--duration:2.80s;--delay:0.00s"></span><span class="twinkle-star dot lav" style="--x:13%;--y:58%;--duration:4.69s;--delay:-4.29s"></span><span class="twinkle-star spark lav" style="--x:20%;--y:33%;--duration:3.07s;--delay:-1.17s"></span><span class="twinkle-star dot cream" style="--x:27%;--y:79%;--duration:4.96s;--delay:-5.46s"></span><span class="twinkle-star dot cream" style="--x:34%;--y:12%;--duration:3.34s;--delay:-2.34s"></span><span class="twinkle-star spark lav" style="--x:41%;--y:88%;--duration:5.23s;--delay:-6.63s"></span><span class="twinkle-star spark cream" style="--x:49%;--y:8%;--duration:3.61s;--delay:-3.51s"></span><span class="twinkle-star dot lav" style="--x:57%;--y:72%;--duration:5.50s;--delay:-0.39s"></span><span class="twinkle-star dot cream" style="--x:65%;--y:18%;--duration:3.88s;--delay:-4.68s"></span><span class="twinkle-star spark cream" style="--x:73%;--y:84%;--duration:5.77s;--delay:-1.56s"></span><span class="twinkle-star spark lav" style="--x:80%;--y:31%;--duration:4.15s;--delay:-5.85s"></span><span class="twinkle-star spark cream" style="--x:91%;--y:14%;--duration:6.04s;--delay:-2.73s"></span><span class="twinkle-star dot lav" style="--x:95%;--y:67%;--duration:4.42s;--delay:-7.02s"></span><span class="twinkle-star spark lav" style="--x:10%;--y:89%;--duration:2.80s;--delay:-3.90s"></span><span class="twinkle-star dot cream" style="--x:88%;--y:92%;--duration:4.69s;--delay:-0.78s"></span><span class="twinkle-star dot cream" style="--x:5%;--y:43%;--duration:3.07s;--delay:-5.07s"></span><span class="twinkle-star dot cream" style="--x:96%;--y:46%;--duration:4.96s;--delay:-1.95s"></span><span class="twinkle-star dot lav" style="--x:30%;--y:52%;--duration:3.34s;--delay:-6.24s"></span><span class="twinkle-star dot lav" style="--x:72%;--y:7%;--duration:5.23s;--delay:-3.12s"></span></div>
+<div class="world-sky" aria-hidden="true"><div class="world-stars" style="display:none"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+<main class="game">
+  <div class="journey-progress" aria-hidden="true"><span></span></div>
+  <div class="scene-transition" aria-hidden="true"><span>✦</span></div>
+  <!-- หน้า 1 : หน้าปก (คงโครงสร้างเดิม) -->
+  <section id="cover" class="screen">
+    <div class="cover-content">
+      <img src="images/logo_transparent.png" class="cover-logo" alt="Imagine City">
+      <img src="images/portal.png" class="cover-portal" alt="ประตูเวทมนตร์">
+      <div class="cover-text"><h2>สีสันของเมืองกำลังเลือนหาย...</h2><p>ออกเดินทางเพื่อค้นหาคำตอบ<br>และนำสีสันกลับคืนมา</p></div>
+      <button id="startButton" class="main-button">เริ่มการเดินทาง ▶</button>
+    </div>
+  </section>
+  <!-- หน้า 2 : เกริ่นนำเรื่อง -->
+  <section id="story" class="screen hidden">
+    <div class="story-content">
+      <div class="story-top"><span>IMAGINE CITY</span><span>02 / 25</span></div>
+      <img src="images/portal.png" class="story-image" alt="ประตู Imagine City">
+      <h2>เมื่อสีสันเริ่มเลือนหาย...</h2>
+      <p>ครั้งหนึ่ง Imagine City<br>เคยเป็นเมืองที่เต็มไปด้วย<br>สีสันและเวทมนตร์</p>
+      <p>แต่วันหนึ่ง สีสันทั่วทั้งเมือง<br>กลับค่อย ๆ จางหายไปอย่างลึกลับ...</p>
+      <button id="nextButton" class="main-button">เดินทางต่อ →</button>
+      <button id="backButton" class="back-button">← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 3 : วิธีเล่น -->
+  <section id="howToPlay" class="screen hidden">
+    <div class="story-content">
+      <div class="story-top"><span>IMAGINE CITY</span><span>03 / 25</span></div>
+      <div class="instruction-icon">✦</div>
+      <h2>วิธีการเดินทาง</h2>
+      <p>ตลอดการผจญภัย<br>คุณจะได้พบกับสถานการณ์ต่าง ๆ</p>
+      <p>เลือกคำตอบที่ตรงกับตัวคุณที่สุด<br>ทุกการตัดสินใจจะช่วยคืนสีสันให้เมือง</p>
+      <p>เมื่อการเดินทางสิ้นสุดลง<br>ตัวตนที่แท้จริงของคุณจะถูกเปิดเผย</p>
+      <button id="playButton" class="main-button">พร้อมออกเดินทาง →</button>
+      <button id="backToStory" class="back-button">← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 4 -->
+  <section id="page4" class="screen hidden" data-page="4">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>04 / 25</span></div>
+      <div class="scene-symbol">✧</div><p class="chapter-tag">บทที่ 1</p><h2>เสียงเรียกจากเมือง</h2><p>ประตูเวทมนตร์เปิดออก คุณก้าวเข้าสู่เมืองที่สีสันเลือนหาย</p><div class="scene-art portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><button class="main-button" data-next>เดินทางต่อ →</button>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 5 -->
+  <section id="page5" class="screen hidden" data-page="5">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>05 / 25</span></div>
+      <p class="chapter-tag">บทที่ 1 · เสียงเรียกจากเมือง</p><div class="scene-art small portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><h2>เมื่อพบทางแยกที่มืดสนิท คุณจะทำอย่างไร?</h2><div class="choices"><button type="button" class="choice-button" data-choice="0">เดินนำหน้าเพื่อสำรวจเส้นทาง</button>
+<button type="button" class="choice-button" data-choice="1">วางแผนเลือกทางที่ปลอดภัย</button>
+<button type="button" class="choice-button" data-choice="2">มองหาร่องรอยเวทมนตร์</button>
+<button type="button" class="choice-button" data-choice="3">ลองเดินทางที่ไม่มีใครกล้าไป</button>
+<button type="button" class="choice-button" data-choice="4">ชวนทุกคนเดินไปด้วยกัน</button></div><p class="choice-hint">เลือกคำตอบเพื่อเดินทางต่อ</p>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 6 -->
+  <section id="page6" class="screen hidden" data-page="6">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>06 / 25</span></div>
+      <p class="chapter-tag">บทที่ 1 · เสียงเรียกจากเมือง</p><div class="scene-art small portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><h2>คุณพบโคมไฟที่ใกล้ดับ สิ่งแรกที่คิดคือ...</h2><div class="choices"><button type="button" class="choice-button" data-choice="0">รีบปกป้องเปลวไฟ</button>
+<button type="button" class="choice-button" data-choice="1">หาวิธีให้แสงส่องทั่วเมือง</button>
+<button type="button" class="choice-button" data-choice="2">ศึกษาว่าเหตุใดแสงจึงหายไป</button>
+<button type="button" class="choice-button" data-choice="3">ทดลองเปลี่ยนพลังของโคม</button>
+<button type="button" class="choice-button" data-choice="4">ดูแลคนที่กำลังหนาว</button></div><p class="choice-hint">เลือกคำตอบเพื่อเดินทางต่อ</p>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 7 -->
+  <section id="page7" class="screen hidden" data-page="7">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>07 / 25</span></div>
+      <p class="chapter-tag">บทที่ 1 · เสียงเรียกจากเมือง</p><div class="scene-art small portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><h2>เสียงปริศนาขอให้คุณเลือกสิ่งหนึ่ง</h2><div class="choices"><button type="button" class="choice-button" data-choice="0">ความกล้าที่จะก้าวต่อ</button>
+<button type="button" class="choice-button" data-choice="1">ความมั่นใจในการตัดสินใจ</button>
+<button type="button" class="choice-button" data-choice="2">ความอยากรู้อยากเห็น</button>
+<button type="button" class="choice-button" data-choice="3">อิสระที่จะสร้างทางใหม่</button>
+<button type="button" class="choice-button" data-choice="4">ความหวังให้ทุกคน</button></div><p class="choice-hint">เลือกคำตอบเพื่อเดินทางต่อ</p>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 8 -->
+  <section id="page8" class="screen hidden" data-page="8">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>08 / 25</span></div>
+      <div class="scene-symbol">✦</div><h2>ประกายสีแรก</h2><p>แสงสีเล็ก ๆ เริ่มปรากฏบนเส้นทาง</p><div class="scene-art portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><button class="main-button" data-next>เดินทางต่อ →</button>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 9 -->
+  <section id="page9" class="screen hidden" data-page="9">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>09 / 25</span></div>
+      <div class="scene-symbol">✧</div><p class="chapter-tag">บทที่ 2</p><h2>ตรอกแห่งเงา</h2><p>แสงริบหรี่พาคุณไปยังตรอกที่เต็มไปด้วยปริศนา</p><div class="scene-art portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><button class="main-button" data-next>เดินทางต่อ →</button>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 10 -->
+  <section id="page10" class="screen hidden" data-page="10">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>10 / 25</span></div>
+      <p class="chapter-tag">บทที่ 2 · ตรอกแห่งเงา</p><div class="scene-art small portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><h2>พบสะพานชำรุดขวางทาง คุณจะ...</h2><div class="choices"><button type="button" class="choice-button" data-choice="0">ลองหาทางข้ามก่อน</button>
+<button type="button" class="choice-button" data-choice="1">จัดหน้าที่ให้ทุกคนช่วยกัน</button>
+<button type="button" class="choice-button" data-choice="2">อ่านสัญลักษณ์บนสะพาน</button>
+<button type="button" class="choice-button" data-choice="3">ประดิษฐ์วิธีข้ามแบบใหม่</button>
+<button type="button" class="choice-button" data-choice="4">ช่วยคนที่กลัวให้สบายใจ</button></div><p class="choice-hint">เลือกคำตอบเพื่อเดินทางต่อ</p>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 11 -->
+  <section id="page11" class="screen hidden" data-page="11">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>11 / 25</span></div>
+      <p class="chapter-tag">บทที่ 2 · ตรอกแห่งเงา</p><div class="scene-art small portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><h2>มีคนทำแผนที่หาย คุณจะ...</h2><div class="choices"><button type="button" class="choice-button" data-choice="0">ออกตามหาในทันที</button>
+<button type="button" class="choice-button" data-choice="1">รวบรวมข้อมูลจากทุกคน</button>
+<button type="button" class="choice-button" data-choice="2">สังเกตรอยหมึกที่หลงเหลือ</button>
+<button type="button" class="choice-button" data-choice="3">วาดแผนที่ใหม่จากจินตนาการ</button>
+<button type="button" class="choice-button" data-choice="4">ปลอบใจเจ้าของแผนที่ก่อน</button></div><p class="choice-hint">เลือกคำตอบเพื่อเดินทางต่อ</p>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 12 -->
+  <section id="page12" class="screen hidden" data-page="12">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>12 / 25</span></div>
+      <div class="scene-symbol">✦</div><h2>เงาที่เริ่มจาง</h2><p>ตรอกมืดเผยสีม่วงอ่อนที่เคยหายไป</p><div class="scene-art portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><button class="main-button" data-next>เดินทางต่อ →</button>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 13 -->
+  <section id="page13" class="screen hidden" data-page="13">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>13 / 25</span></div>
+      <div class="scene-symbol">✧</div><p class="chapter-tag">บทที่ 3</p><h2>เขตแห่งความทรงจำ</h2><p>เศษสีบางส่วนกลับมา และความทรงจำของเมืองเริ่มตื่นขึ้น</p><div class="scene-art portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><button class="main-button" data-next>เดินทางต่อ →</button>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 14 -->
+  <section id="page14" class="screen hidden" data-page="14">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>14 / 25</span></div>
+      <p class="chapter-tag">บทที่ 3 · เขตแห่งความทรงจำ</p><div class="scene-art small portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><h2>ห้องหนึ่งเต็มไปด้วยความทรงจำ คุณสนใจ...</h2><div class="choices"><button type="button" class="choice-button" data-choice="0">เรื่องราวของการผจญภัย</button>
+<button type="button" class="choice-button" data-choice="1">เรื่องราวของผู้คนในเมือง</button>
+<button type="button" class="choice-button" data-choice="2">ปริศนาที่ซ่อนในภาพเก่า</button>
+<button type="button" class="choice-button" data-choice="3">สิ่งที่ยังไม่มีใครเคยสร้าง</button>
+<button type="button" class="choice-button" data-choice="4">ความทรงจำที่ทำให้ยิ้ม</button></div><p class="choice-hint">เลือกคำตอบเพื่อเดินทางต่อ</p>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 15 -->
+  <section id="page15" class="screen hidden" data-page="15">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>15 / 25</span></div>
+      <p class="chapter-tag">บทที่ 3 · เขตแห่งความทรงจำ</p><div class="scene-art small portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><h2>ประตูห้องลับเปิดได้ด้วยสิ่งใด?</h2><div class="choices"><button type="button" class="choice-button" data-choice="0">การลงมือทำ</button>
+<button type="button" class="choice-button" data-choice="1">การตัดสินใจที่แน่วแน่</button>
+<button type="button" class="choice-button" data-choice="2">การไขคำใบ้</button>
+<button type="button" class="choice-button" data-choice="3">ความคิดนอกกรอบ</button>
+<button type="button" class="choice-button" data-choice="4">ความเข้าใจผู้อื่น</button></div><p class="choice-hint">เลือกคำตอบเพื่อเดินทางต่อ</p>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 16 -->
+  <section id="page16" class="screen hidden" data-page="16">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>16 / 25</span></div>
+      <div class="scene-symbol">✦</div><h2>ความทรงจำผลิบาน</h2><p>สีของหลังคาและหน้าต่างค่อย ๆ กลับคืน</p><div class="scene-art portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><button class="main-button" data-next>เดินทางต่อ →</button>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 17 -->
+  <section id="page17" class="screen hidden" data-page="17">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>17 / 25</span></div>
+      <div class="scene-symbol">✧</div><p class="chapter-tag">บทที่ 4</p><h2>หอคอยแห่งแสง</h2><p>บนยอดหอคอยยังมีประกายสีสุดท้ายหลงเหลือ</p><div class="scene-art portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><button class="main-button" data-next>เดินทางต่อ →</button>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 18 -->
+  <section id="page18" class="screen hidden" data-page="18">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>18 / 25</span></div>
+      <p class="chapter-tag">บทที่ 4 · หอคอยแห่งแสง</p><div class="scene-art small portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><h2>แสงสีสุดท้ายอยู่บนยอดหอคอย คุณจะ...</h2><div class="choices"><button type="button" class="choice-button" data-choice="0">ปีนขึ้นไปเก็บมัน</button>
+<button type="button" class="choice-button" data-choice="1">วางแผนเส้นทางให้ทุกคน</button>
+<button type="button" class="choice-button" data-choice="2">ค้นหากลไกของหอคอย</button>
+<button type="button" class="choice-button" data-choice="3">ดัดแปลงอุปกรณ์ช่วยปีน</button>
+<button type="button" class="choice-button" data-choice="4">คอยดูแลเพื่อนร่วมทาง</button></div><p class="choice-hint">เลือกคำตอบเพื่อเดินทางต่อ</p>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 19 -->
+  <section id="page19" class="screen hidden" data-page="19">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>19 / 25</span></div>
+      <p class="chapter-tag">บทที่ 4 · หอคอยแห่งแสง</p><div class="scene-art small portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><h2>หากพลังมีจำกัด คุณจะใช้มันเพื่อ...</h2><div class="choices"><button type="button" class="choice-button" data-choice="0">เปิดทางข้างหน้า</button>
+<button type="button" class="choice-button" data-choice="1">ทำให้เมืองกลับมามีระเบียบ</button>
+<button type="button" class="choice-button" data-choice="2">ปลดล็อกความลับของแสง</button>
+<button type="button" class="choice-button" data-choice="3">สร้างสิ่งที่ไม่เคยมี</button>
+<button type="button" class="choice-button" data-choice="4">ช่วยคนที่ต้องการมันที่สุด</button></div><p class="choice-hint">เลือกคำตอบเพื่อเดินทางต่อ</p>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 20 -->
+  <section id="page20" class="screen hidden" data-page="20">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>20 / 25</span></div>
+      <div class="scene-symbol">✦</div><h2>แสงก่อนรุ่งอรุณ</h2><p>ทั้งเมืองเริ่มส่องประกายอีกครั้ง</p><div class="scene-art portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><button class="main-button" data-next>เดินทางต่อ →</button>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 21 -->
+  <section id="page21" class="screen hidden" data-page="21">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>21 / 25</span></div>
+      <div class="scene-symbol">✧</div><p class="chapter-tag">บทที่ 5</p><h2>หัวใจของเมือง</h2><p>ถึงเวลาตัดสินใจว่าแสงของเมืองจะกลับมาอย่างไร</p><div class="scene-art portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><button class="main-button" data-next>เดินทางต่อ →</button>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 22 -->
+  <section id="page22" class="screen hidden" data-page="22">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>22 / 25</span></div>
+      <p class="chapter-tag">บทที่ 5 · หัวใจของเมือง</p><div class="scene-art small portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><h2>หัวใจของเมืองถามว่า คุณเชื่อในสิ่งใด?</h2><div class="choices"><button type="button" class="choice-button" data-choice="0">ความกล้าหาญ</button>
+<button type="button" class="choice-button" data-choice="1">ความเป็นผู้นำ</button>
+<button type="button" class="choice-button" data-choice="2">ความรู้และจินตนาการ</button>
+<button type="button" class="choice-button" data-choice="3">การเปลี่ยนแปลง</button>
+<button type="button" class="choice-button" data-choice="4">ความเมตตา</button></div><p class="choice-hint">เลือกคำตอบเพื่อเดินทางต่อ</p>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 23 -->
+  <section id="page23" class="screen hidden" data-page="23">
+    <div class="story-content"><div class="story-top"><span>IMAGINE CITY</span><span>23 / 25</span></div>
+      <p class="chapter-tag">บทที่ 5 · หัวใจของเมือง</p><div class="scene-art small portal-art" aria-hidden="true"><div class="portal-layers">
+  <img class="portal-layer portal-base" src="images/portal-0.png" alt="">
+  <img class="portal-layer portal-next" src="images/portal-0.png" alt="">
+</div></div><h2>เมื่อเมืองกลับมามีสี คุณอยากทำอะไรต่อ?</h2><div class="choices"><button type="button" class="choice-button" data-choice="0">ออกสำรวจโลกใหม่</button>
+<button type="button" class="choice-button" data-choice="1">สร้างอนาคตให้เมือง</button>
+<button type="button" class="choice-button" data-choice="2">ค้นคว้าเวทมนตร์ที่เหลือ</button>
+<button type="button" class="choice-button" data-choice="3">สร้างโลกในแบบของตัวเอง</button>
+<button type="button" class="choice-button" data-choice="4">อยู่ดูแลรอยยิ้มของทุกคน</button></div><p class="choice-hint">เลือกคำตอบเพื่อเดินทางต่อ</p>
+      <button class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 24 : ประตูสุดท้าย / บัตรผ่านนักเดินทาง -->
+  <section id="page24" class="screen hidden" data-page="24">
+    <div class="story-content traveler-content">
+      <div class="story-top"><span>IMAGINE CITY</span><span>24 / 25</span></div>
+      <div class="passport-symbol" aria-hidden="true">✦</div>
+      <p class="chapter-tag">ประตูสุดท้าย</p>
+      <h2>บัตรผ่านนักเดินทาง</h2>
+      <p class="passport-intro">ก่อนเผยตัวตนที่แท้จริง ฝากบอกเรื่องราวของคุณอีกสักนิด<br>กรอกเท่าที่สะดวกได้เลย ข้อไหนไม่อยากตอบก็ข้ามได้</p>
+      <form id="travelerForm" class="traveler-form" novalidate>
+        <label>1. ชื่อเล่นของเธอ
+          <input name="nickname" type="text" maxlength="60" placeholder="ชื่อเล่น (ไม่บังคับ)" autocomplete="off">
+        </label>
+        <label>2. ตอนนี้เรียนอยู่ชั้นไหน
+          <select name="grade"><option value="">เลือกคำตอบ</option><option>ม.4</option><option>ม.5</option><option>ม.6</option><option>ปวช.</option><option>ปวส.</option><option>อื่น ๆ</option></select>
+        </label>
+        <label>3. เรียนสายอะไรอยู่
+          <select name="track"><option value="">เลือกคำตอบ</option><option>ศิลป์-คำนวณ</option><option>ศิลป์-ภาษา</option><option>วิทย์-คณิต</option><option>สายอาชีพ</option><option>อื่น ๆ</option></select>
+        </label>
+        <label>4. อยู่จังหวัดอะไร
+          <input name="province" type="text" maxlength="100" placeholder="จังหวัด (ไม่บังคับ)" autocomplete="off">
+        </label>
+        <fieldset><legend>5. รู้จักคณะนี้จากที่ไหน</legend>
+          <div class="passport-options"><label><input type="checkbox" name="discovery" value="Facebook">Facebook</label><label><input type="checkbox" name="discovery" value="Instagram">Instagram</label><label><input type="checkbox" name="discovery" value="TikTok">TikTok</label><label><input type="checkbox" name="discovery" value="เพื่อนหรือรุ่นพี่">เพื่อนหรือรุ่นพี่</label><label><input type="checkbox" name="discovery" value="ครูแนะแนว">ครูแนะแนว</label><label><input type="checkbox" name="discovery" value="งานกิจกรรม">งานกิจกรรม</label><label><input type="checkbox" name="discovery" value="อื่น ๆ">อื่น ๆ</label></div>
+        </fieldset>
+        <fieldset><legend>6. เลือกคณะโดยดูจากอะไรเป็นหลักที่สุด (เลือกได้ 2 ข้อ)</legend>
+          <div class="passport-options" id="priorityOptions"><label><input type="checkbox" name="priority" value="งานที่ชอบ">งานที่ชอบ</label><label><input type="checkbox" name="priority" value="ทำงานสายไหน">ทำงานสายไหน</label><label><input type="checkbox" name="priority" value="ชื่อเสียงมหาวิทยาลัย">ชื่อเสียงมหาวิทยาลัย</label><label><input type="checkbox" name="priority" value="อาชีพหลังเรียนจบ">อาชีพหลังเรียนจบ</label><label><input type="checkbox" name="priority" value="ผลงานของรุ่นพี่">ผลงานของรุ่นพี่</label><label><input type="checkbox" name="priority" value="การเดินทาง">การเดินทาง</label><label><input type="checkbox" name="priority" value="ความชอบของตัวเอง">ความชอบของตัวเอง</label><label><input type="checkbox" name="priority" value="ผู้ปกครองสนับสนุน">ผู้ปกครองสนับสนุน</label></div>
+          <span id="priorityHint" class="passport-hint" aria-live="polite"></span>
+        </fieldset>
+        <fieldset><legend>7. ตอนนี้อยู่ขั้นไหนของการเลือกคณะ</legend>
+          <div class="passport-options"><label><input type="radio" name="decision" value="เพิ่งเริ่มหาข้อมูล">เพิ่งเริ่มหาข้อมูล</label><label><input type="radio" name="decision" value="กำลังเปรียบเทียบหลายที่">กำลังเปรียบเทียบหลายที่</label><label><input type="radio" name="decision" value="ตั้งใจสมัครคณะนี้">ตั้งใจสมัครคณะนี้</label><label><input type="radio" name="decision" value="รอผลสอบที่อื่นก่อน">รอผลสอบที่อื่นก่อน</label></div>
+        </fieldset>
+        <fieldset><legend>8. เคยทำงานสร้างสรรค์อะไรบ้าง (เลือกได้หลายข้อ)</legend>
+          <div class="passport-options"><label><input type="checkbox" name="creative" value="วาดรูป">วาดรูป</label><label><input type="checkbox" name="creative" value="ออกแบบ">ออกแบบ</label><label><input type="checkbox" name="creative" value="ตัดต่อวิดีโอ">ตัดต่อวิดีโอ</label><label><input type="checkbox" name="creative" value="ทำเกม">ทำเกม</label><label><input type="checkbox" name="creative" value="จัดกิจกรรม">จัดกิจกรรม</label><label><input type="checkbox" name="creative" value="ถ่ายคอนเทนต์">ถ่ายคอนเทนต์</label><label><input type="checkbox" name="creative" value="ยังไม่เคยเลย">ยังไม่เคยเลย</label></div>
+        </fieldset>
+        <label>9. อยากรับข่าวสารของคณะทางไหน
+          <select name="news"><option value="">เลือกคำตอบ</option><option>LINE</option><option>อีเมล</option><option>Facebook</option><option>Instagram</option><option>โทรศัพท์</option></select>
+        </label>
+        <p class="passport-hint">เวอร์ชันทดลอง: ข้อมูลอยู่ในหน้าเว็บนี้เท่านั้น ไม่ได้ส่งไปยังเซิร์ฟเวอร์</p>
+        <button type="submit" class="main-button">เปิดเผยตัวตน →</button>
+      </form>
+      <button type="button" class="back-button" data-back>← ย้อนกลับ</button>
+    </div>
+  </section>
+  <!-- หน้า 25 -->
+  <section id="page25" class="screen hidden" data-page="25" aria-labelledby="resultRole">
+    <div class="result-layout">
+      <article class="identity-card">
+        <div class="identity-art" aria-hidden="true">
+          <span class="identity-star identity-star-left">✦</span>
+          <span class="identity-star identity-star-right">✧</span>
+          <div id="resultEmblem" class="result-emblem">✦</div>
+        </div>
+        <header class="identity-header">
+          <p>เปิดเผยตัวตน</p>
+          <h2 id="resultRole">ตัวตนของคุณ</h2>
+        </header>
+        <p id="resultDescription" class="identity-description"></p>
+        <div class="identity-major">
+          <p class="identity-major-label">สาขาที่แนะนำ</p>
+          <p id="resultMajor"></p>
+        </div>
+      </article>
+      <div class="identity-actions">
+        <button id="restartButton" class="main-button">เริ่มการเดินทางใหม่ ↻</button>
+        <button class="back-button" data-back>← ย้อนกลับ</button>
+      </div>
+    </div>
+  </section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
